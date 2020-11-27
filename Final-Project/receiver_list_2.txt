@@ -1,0 +1,4 @@
+nama penerima,alamat_email_penerima@gmail.com
+nama penerima,alamat_email_penerima@gmail.com
+nama penerima,alamat_email_penerima@gmail.com
+nama penerima,alamat_email_penerima@gmail.com
