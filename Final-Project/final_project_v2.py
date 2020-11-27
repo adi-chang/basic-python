@@ -36,7 +36,7 @@ locale.setlocale(locale.LC_TIME, 'ID')
 nama_file_daftar_email_address_target = 'receiver_list_2.txt' # file ini berisi daftar nama dan alamat email penerima
 
 
-email_pengirim = 'alamat_email_pengirim@gmail.com' # ganti dengan alamat email anda 
+email_pengirim = 'alamat_email_pengirim{at}gmail.com' # ganti dengan alamat email anda 
 your_email_password = None
 
 

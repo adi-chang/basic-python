@@ -1,10 +1,5 @@
-emailpenerima_01@gmail.com
-emailpenerima_02@gmail.com
-emailpenerima_03@gmail.com
-emailpenerima_04@gmail.com
-emailpenerima_05@gmail.com
-emailpenerima_06@gmail.com
-emailpenerima_07@gmail.com
-emailpenerima_08@gmail.com
-emailpenerima_09@gmail.com
-emailpenerima_10@gmail.com
+emailpenerima_01{at}gmail.com
+emailpenerima_02{at}gmail.com
+emailpenerima_03{at}gmail.com
+emailpenerima_04{at}gmail.com
+emailpenerima_05{at}gmail.com

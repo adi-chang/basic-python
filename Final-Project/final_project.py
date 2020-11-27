@@ -25,7 +25,7 @@ from email.mime.image import MIMEImage # https://docs.python.org/3/library/email
 nama_file_daftar_email_address_target = 'receiver_list.txt' # file ini berisi daftar alamat email penerima
 
 
-email_pengirim = 'emailpengirim@gmail.com' # ganti dengan alamat email anda 
+email_pengirim = 'emailpengirim{at}gmail.com' # ganti dengan alamat email anda 
 
 
 # nama file contoh untuk sample file attachment
