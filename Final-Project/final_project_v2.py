@@ -68,76 +68,7 @@ def read_nama_dan_alamat_email_penerima(nama_file):
 # object server yang betipe SMTP dari modul smtplib akan digunakan untuk mengirim emailnya
 # pada fungsi ini email akan dikirim dengan menggunakan service smtp dari gmail (smtp.gmail.com)
 # dan menggunakan opsi: 'Less Secure Apps' bernilai: On. (https://myaccount.google.com/lesssecureapps) 
-def send_email_with_attachment(nama_penerima, alamat_email_penerima):
-
-    # konstruksi email yang akan dikirim 
-    # set up object msg sebagai MIMEMultipart
-    msg = MIMEMultipart()
-    
-    # set up alamat email pengirim
-    msg['From'] = email_pengirim
-    
-    # set up alamat email penerima
-    # karena alamat email penerima lebih dari satu, setiap alamat email akan dipisahkan dengan tanda koma 
-    msg['To'] = alamat_email_penerima
-    
-    # set up subject email
-    msg['Subject'] = 'indonesia.ai kelas basic-python'
-    
-    # set up isi pesan email 
-    sekarang = datetime.now()
-    body = f'Hi, {nama_penerima}\nIni adalah contoh isi pesan pada body email.\n\nNb.Email ini dikirimkan pada hari: {sekarang:%A, %d %B %Y - %H:%M:%S}'
-        
-    # attach isi pesan email ini ke dalam object msg (MIMEMultipart)
-    # disini di set up sebagai pesan dalam format/bentuk plain text 
-    msg.attach(MIMEText(body, 'plain'))
-
-    # attach pdf
-    if attach_file_pdf:
-        # konstruksi lampiran yang berjenis pdf menggunakan object MIMEApplication
-        # pertama, buka filenya (mode binary), read, dan jadikan sebagai object MIMEApplication
-        # kedua, set header lampirannya
-        # attach file lampiran tsb ke email yang sedang dikonstruksi
-        lampiran1 = MIMEApplication(open(sample_nama_file_pdf, 'rb').read())
-        lampiran1.add_header('Content-Disposition', 'attachment', filename=sample_nama_file_pdf)
-        msg.attach(lampiran1)
-    
-    # attach image
-    if attach_file_image:
-        # konstruksi lampiran yang berjenis image menggunakan object MIMEImage
-        # pertama, buka filenya (mode binary), read, dan jadikan sebagai object MIMEImage
-        # kedua, set header lampirannya
-        # attach file lampiran tsb ke email yang sedang dikonstruksi
-        fp = open(sample_nama_file_image, 'rb')
-        lampiran2 = MIMEImage(fp.read())
-        lampiran2.add_header('Content-Disposition', 'attachment', filename=sample_nama_file_image)
-        fp.close()
-        msg.attach(lampiran2)
-
-    # attach text file
-    if attach_file_text:
-        # konstruksi lampiran yang berjenis text menggunakan object MIMEText
-        # pertama, buka filenya, read, dan jadikan sebagai object MIMEText
-        # kedua, set header lampirannya
-        # attach file lampiran tsb ke email yang sedang dikonstruksi
-        lampiran3 = MIMEText(open(sample_nama_file_text, 'r').read())
-        lampiran3.add_header('Content-Disposition', 'attachment', filename=sample_nama_file_text)
-        msg.attach(lampiran3)
-    
-    # konstruksi object smtplib.SMTP, disini, digunakan smtpnya gmail (smtp.gmail.com, port 587)
-    # object ini akan digunakan untuk mengirimkan emailnya
-    server = smtplib.SMTP(host='smtp.gmail.com', port=587)
-    # set up secure connection via tls dengan memanggil starttls()
-    server.starttls()
-    # server.set_debuglevel(1)
-    # login ke gmail
-    server.login(email_pengirim, your_email_password) 
-    # kirim emailnya 
-    server.send_message(msg)
-    server.quit()
-    
-    
-def send_email_with_attachment_test(list_data_penerima):
+def send_email_with_attachment(list_data_penerima):
     
     # konstruksi object smtplib.SMTP, disini, digunakan smtpnya gmail (smtp.gmail.com, port 587)
     # object ini akan digunakan untuk mengirimkan emailnya
@@ -270,16 +201,7 @@ if __name__ == '__main__':
                 break
         # kirim email via fungsi send_email_with_attachment(...)
         print('\nStart Kirim Email:')
-        # for nama, addr in list_data_penerima:
-        #     print(f'{" " * 4}Kirim Email Untuk: {nama.ljust(n)} ... ', end='')
-        #     try:
-        #         send_email_with_attachment(nama, addr)        
-        #     except Exception as ex:
-        #         print("Gagal")
-        #         raise ex
-        #     else:
-        #         print("Done.")
-        send_email_with_attachment_test(list_data_penerima)
+        send_email_with_attachment(list_data_penerima)
         print('Proses Pengiriman Email Selesai.')
     except Exception as e:
         print(f'Something Wrong Has Happen:\n{e}')
