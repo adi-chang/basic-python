@@ -31,7 +31,7 @@ email_pengirim = 'emailpengirim{at}gmail.com' # ganti dengan alamat email anda
 # nama file contoh untuk sample file attachment
 sample_nama_file_pdf = 'python_file_tutorialpoint.pdf'
 sample_nama_file_image = 'wonderful_indonesia.jpg'
-sample_nama_file_text = 'final_project.py'
+sample_nama_file_text = 'final_project_v0.py'
 
 
 # flag untuk attach atau tidak masing-masing jenis file attachment di atas

@@ -65,7 +65,7 @@ def send_email(list_data_penerima):
             message = f'Subject: {subject}\n\n{pesan}'
             print(f'{" " * 4}Kirim Email Untuk: {nama.ljust(n)} ... ', end='')
             server.sendmail(email_pengirim, recipient, message)
-            print("Done.")
+            print('Done.')
         server.close()            
     except Exception as ex:
         print("Gagal")
